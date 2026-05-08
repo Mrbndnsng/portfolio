@@ -125,7 +125,7 @@ function handleInitialHash() {
     }
 }
 
-// Event Listeners
+
 window.addEventListener('load', () => {
     checkAndAnimate();
     updateActiveNavLink();

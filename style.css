@@ -484,7 +484,7 @@ section {
 .project-link { font-size: 0.8rem; font-weight: 500; color: #2563eb; display: inline-flex; align-items: center; gap: 4px; transition: gap 0.2s ease; }
 .project-link:hover { gap: 8px; }
 
-/* ========== CONTACT ========== */
+
 .contact-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
 .contact-info p { margin-bottom: 1.5rem; }
 .contact-details { display: flex; flex-direction: column; gap: 0.75rem; }
@@ -510,7 +510,7 @@ footer { text-align: center; padding: 2rem 0; font-size: 0.8rem; color: #64748b;
     transform: translateY(0);
 }
 
-/* ========== RESPONSIVE ========== */
+
 @media (max-width: 850px) {
     .mobile-toggle { display: flex; }
     .nav-links {
