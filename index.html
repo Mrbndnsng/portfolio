@@ -9,7 +9,6 @@
 </head>
 <body>
     
-
 <div class="ambient-orb orb-1"></div>
 <div class="ambient-orb orb-2"></div>
 <div class="ambient-orb orb-3"></div>
@@ -62,7 +61,7 @@
                 <div class="floating-dot dot-5"></div>
                 <div class="profile-shadow"></div>
                 <div class="profile-image-container">
-                    <img src="image.jpg" alt="Marben Densing" class="profile-image" style="border: 2px solid rgba(37, 99, 235, 0.6); box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.3);" onerror="this.src='https://via.placeholder.com/280x280?text=M'">
+                    <img src="image.jpg" alt="Marben Densing" class="profile-image" onerror="this.src='https://via.placeholder.com/280x280?text=M'">
                 </div>
             </div>
         </div>
@@ -95,7 +94,7 @@
     <section id="skills" class="fade-up">
         <div class="container">
             <h2 class="section-title">Skills</h2>
-            <p class="skills-subtitle">Current proficiency actively developing</p>
+            <p class="skills-subtitle">Current proficiency — actively developing</p>
             <div class="skills-grid">
                 <div class="skill-card">
                     <div class="skill-icon">PY</div>
@@ -169,7 +168,6 @@
             <h2 class="section-title">Work</h2>
             <p class="work-sub">Laboratory activities and exercises from coursework</p>
             <div class="projects-grid">
-                
                 <a href="Activity_1.html" target="_blank" class="project-card-link">
                     <div class="project-card">
                         <div class="activity-preview">
@@ -264,15 +262,19 @@
                 <div class="contact-info">
                     <p>Open to collaboration, internships, and conversations about tech.</p>
                     <div class="contact-details">
-                        <a href="tel:+639123456789" class="contact-item-link"><div class="contact-item">Phone · +63 9853416142</div></a>
+                        <a href="tel:+639853416142" class="contact-item-link"><div class="contact-item">Phone · +63 9853416142</div></a>
                         <a href="https://github.com/Mrbndnsng" target="_blank" class="contact-item-link"><div class="contact-item">GitHub · /Mrbndnsng</div></a>
                         <a href="mailto:densingmarben@gmail.com" class="contact-item-link"><div class="contact-item">Email · densingmarben@gmail.com</div></a>
                     </div>
                 </div>
-                <form id="contactForm" class="contact-form">
-                    <input type="text" id="name" placeholder="Name" required>
-                    <input type="email" id="email" placeholder="Email" required>
-                    <textarea id="message" rows="4" placeholder="Message" required></textarea>
+                <form id="contactForm" class="contact-form" action="https://formsubmit.co/densingmarben@gmail.com" method="POST">
+                    <input type="text" id="name" name="name" placeholder="Name" required>
+                    <input type="email" id="email" name="email" placeholder="Email" required>
+                    <textarea id="message" name="message" rows="4" placeholder="Message" required></textarea>
+                    <input type="hidden" name="_subject" value="New Message from Portfolio Website">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_next" value="https://Mrbndnsng.github.io/portfolio/">
                     <button type="submit" class="btn primary">Send Message</button>
                     <div id="formFeedback" class="form-feedback"></div>
                 </form>

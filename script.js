@@ -19,7 +19,6 @@ window.addEventListener('scroll', () => {
     }
 });
 
-
 const navLinkElements = document.querySelectorAll('.nav-link');
 
 navLinkElements.forEach(link => {
@@ -79,7 +78,6 @@ function updateActiveNavLink() {
     });
 }
 
-
 function isInViewport(el, offset = 100) {
     const rect = el.getBoundingClientRect();
     return rect.top <= window.innerHeight - offset && rect.bottom >= offset;
@@ -125,7 +123,7 @@ function handleInitialHash() {
     }
 }
 
-
+// Event Listeners
 window.addEventListener('load', () => {
     checkAndAnimate();
     updateActiveNavLink();
@@ -148,42 +146,47 @@ window.addEventListener('resize', () => {
     updateActiveNavLink();
 });
 
-
 const contactForm = document.getElementById('contactForm');
 const formFeedback = document.getElementById('formFeedback');
 
 if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+    contactForm.addEventListener('submit', async function(e) {
         e.preventDefault();
-        const name = document.getElementById('name').value.trim();
-        const email = document.getElementById('email').value.trim();
-        const message = document.getElementById('message').value.trim();
         
-        if (!name || !email || !message) {
-            formFeedback.textContent = 'All fields are required.';
+        
+        formFeedback.textContent = 'Sending message...';
+        formFeedback.style.color = '#2563eb';
+        
+        const formData = new FormData(contactForm);
+        
+        try {
+            const response = await fetch('https://formsubmit.co/ajax/densingmarben@gmail.com', {
+                method: 'POST',
+                body: formData
+            });
+            
+            const data = await response.json();
+            
+            if (data.success === 'true' || response.ok) {
+                formFeedback.textContent = '✅ Message sent successfully! I will reply soon.';
+                formFeedback.style.color = '#10b981';
+                contactForm.reset();
+            } else {
+                formFeedback.textContent = '❌ Failed to send message. Please email me directly.';
+                formFeedback.style.color = '#dc2626';
+            }
+        } catch (error) {
+            formFeedback.textContent = '❌ Error sending message. Please email me directly at densingmarben@gmail.com';
             formFeedback.style.color = '#dc2626';
-            setTimeout(() => {
-                formFeedback.textContent = '';
-            }, 3000);
-            return;
-        }
-        if (!email.includes('@') || !email.includes('.')) {
-            formFeedback.textContent = 'Enter a valid email address.';
-            formFeedback.style.color = '#dc2626';
-            setTimeout(() => {
-                formFeedback.textContent = '';
-            }, 3000);
-            return;
         }
         
-        formFeedback.textContent = `Thanks ${name}, your message has been sent.`;
-        formFeedback.style.color = '#10b981';
-        contactForm.reset();
+    
         setTimeout(() => {
             formFeedback.textContent = '';
-        }, 3000);
+        }, 5000);
     });
 }
+
 
 const contactItems = document.querySelectorAll('.contact-item-link');
 contactItems.forEach(item => {
@@ -199,7 +202,4 @@ contactItems.forEach(item => {
     });
 });
 
-
 console.log('Portfolio loaded — Marben Densing');
-console.log('Navigation links:', navLinkElements.length);
-console.log('Sections found:', document.querySelectorAll('section').length);
